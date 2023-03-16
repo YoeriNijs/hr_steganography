@@ -17,7 +17,7 @@ class StegAnalysis:
 
     def detect(self, file) -> bool:
         zeroes = []
-        baseline_dir = os.path.join(os.getcwd(), '__baseline')
+        baseline_dir = os.path.join(os.getcwd(), '__baseline__')
         baseline_files = os.listdir(baseline_dir)
         for baseline_file in baseline_files:
             if baseline_file.endswith('.gpx'):
@@ -40,10 +40,8 @@ class StegAnalysis:
                 current_heart_rate = sector[heart_rate_index]
                 if heart_rate_index > 0:
                     prev_heart_rate = sector[heart_rate_index - 1]
-                    print('hrs', current_heart_rate, prev_heart_rate)
                     difference = current_heart_rate - prev_heart_rate
                     differences.append(difference)
-        print(difference)
         total_count = len(differences)
         if total_count == 0:
             return 100
