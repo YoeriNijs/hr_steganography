@@ -1,0 +1,4 @@
+.idea
+venv
+__baseline/*.gpx
+Pipfile.lock
