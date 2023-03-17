@@ -3,3 +3,4 @@ venv
 __baseline__/*.gpx
 Pipfile.lock
 __pycache__
+*.gpx
