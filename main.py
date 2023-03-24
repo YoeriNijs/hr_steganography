@@ -35,6 +35,9 @@ class HrSteganography:
         self.__writer.write(from_file_name, to_file_name, heart_rates)
 
 if __name__ == '__main__':
+    # Initialize logger with info level
+    logging.basicConfig(level='INFO')
+
     while True:
         app = HrSteganography()
 

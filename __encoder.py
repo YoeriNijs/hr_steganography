@@ -12,7 +12,6 @@ class Encoder:
         return list(chain.from_iterable(sectors))
 
     def update_sector_values(self, binary_message, sectors) -> None:
-        print(binary_message)
         bit_index = 0
         messaged_ended = False
         for sector in sectors[1:]:
