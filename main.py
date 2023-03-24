@@ -4,6 +4,7 @@ from __gpx_reader import GpxReader
 from __gpx_writer import GpxWriter
 from __steganalysis import StegAnalysis
 from __util import Util
+import logging
 
 from cryptography.fernet import Fernet
 
@@ -16,7 +17,7 @@ class HrSteganography:
 
     def encode(self, raw_heart_rates, secret_message) -> list:
         binary_message = Util.convert_message_to_binary(secret_message)
-        print(f'{binary_message}, length: {len(binary_message)}')
+        logging.info(f"Converted message to binary message: '{binary_message}' with length: {len(binary_message)}")
 
         if len(binary_message) > len(raw_heart_rates):
             exit("Message is larger than number of heart rates!")
@@ -54,7 +55,8 @@ if __name__ == '__main__':
                 app.write(from_file_name, to_file_name, encoded_heart_rates)
 
                 encryption_key_string = encryption_key.decode("utf-8")
-                print(f"Message successfully written to: '{to_file_name}' using encryption key: {encryption_key_string}")
+                logging.info(f"Message successfully written to: '{to_file_name}' "
+                             f"using encryption key: {encryption_key_string}")
             else:
                 exit("No file names or message provided!")
         elif choice == 'r':
@@ -70,13 +72,13 @@ if __name__ == '__main__':
             fernet = Fernet(decryption_key.encode())
             decrypted_message = fernet.decrypt(str.encode(decoded_message))
             decrypted_message_str = decrypted_message.decode("utf-8")
-            print(f"Decrypted message: {decrypted_message_str}")
+            logging.info(f"Decrypted message: {decrypted_message_str}")
         elif choice == 'd':
             file_name = input('Enter activity file name to detect steganography: ')
             if file_name:
                 analysis = StegAnalysis()
                 is_steganography_detected = analysis.detect(file_name)
-                print(f"Hidden message discovered: {is_steganography_detected}")
+                logging.info(f"Hidden message discovered: {is_steganography_detected}")
             else:
                 exit("Invalid file")
         elif choice == 'q':

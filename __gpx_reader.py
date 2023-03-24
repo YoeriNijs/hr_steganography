@@ -1,5 +1,10 @@
+# Responsible for reading all heart rates values
+# that are stored in the ns3:hr tag of a gpx file.
 class GpxReader:
+    # Begin tag by Garmin gpx convention
     __begin_tag = '<ns3:hr>'
+
+    # End tag by Garmin gpx convention
     __end_tag = '</ns3:hr>'
 
     def read(self, file_name) -> list:

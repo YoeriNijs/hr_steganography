@@ -9,8 +9,9 @@ from __util import Util
 def is_zero(value):
     return int(value) == 0
 
-# This class is responsible for detecting steganography in gpx files. For this, it uses a baseline that holds valid
+# Responsible for detecting steganography in gpx files. For this, it uses a baseline that holds valid
 # gpx files, and calculates an average of the number of zeroes (i.e. the times when subsequent heart rates are equal).
+# The baseline is calculated using existing gpx files that are stored in the __baseline__ dir.
 class StegAnalysis:
 
     __reader = GpxReader()

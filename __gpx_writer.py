@@ -1,5 +1,10 @@
+# Responsible for writing all heart rates values
+# that are stored in the ns3:hr tag of a gpx file.
 class GpxWriter:
+    # Begin tag by Garmin gpx convention
     __begin_tag = '<ns3:hr>'
+
+    # End tag by Garmin gpx convention
     __end_tag = '</ns3:hr>'
 
     def write(self, from_file_name, to_file_name, heart_rates) -> None:

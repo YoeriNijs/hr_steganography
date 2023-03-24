@@ -2,7 +2,7 @@ from itertools import chain
 
 from __util import Util
 
-
+# Responsible for encoding a binary message in a sequence of heart rates.
 class Encoder:
 
     def encode(self, heart_rates, binary_message) -> list:
@@ -21,6 +21,9 @@ class Encoder:
 
             sector_index = 0
             for value in sector:
+
+                # If the message has ended, we repeat the same bit as the first value of the
+                # sector. I.e. the same bits twice means the message has ended.
                 if bit_index >= len(binary_message):
                     sector[sector_index] = sector[0]
                     messaged_ended = True
@@ -30,6 +33,8 @@ class Encoder:
                 bit = int(binary_message[bit_index])
                 bit_index += 1
 
+                # If this is the first heart rate of the sector, we evaluate here if it should be even or odd.
+                # A bit value of 0 means even, a bit value of 1 means odd.
                 if sector_index == 0:
                     should_be_even = bit == 0
                     is_even = (value % 2) == 0
@@ -37,7 +42,9 @@ class Encoder:
                         sector[sector_index] += 1
                     elif is_even and not should_be_even:
                         sector[sector_index] -= 1
-                    # print('first', bit, value, should_be_even, is_even,  sector[sector_index-1])
+
+                # If this is not the first heart rate of the sector, just compare the heart rate to the previous
+                # one. If the bit value is 0, we decrease the value, otherwise we just increase it.
                 else:
                     should_be_higher = bit == 1
                     prev_value = sector[sector_index - 1]
@@ -49,5 +56,4 @@ class Encoder:
                         sector[sector_index] = prev_value - 1
                     elif is_equal and not is_higher and not should_be_higher:
                         sector[sector_index] = prev_value - 1
-                    # print('other', bit, prev_value, value, should_be_higher, is_higher, sector[sector_index])
                 sector_index += 1

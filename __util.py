@@ -1,4 +1,5 @@
 import binascii
+import logging
 
 from __constants import HEX_AND_BINARY
 from encoding_exception import EncodingException
@@ -42,7 +43,7 @@ class Util:
         if sector_length <= 1:
             sector_length = 2
 
-        print(f"Sector length: {sector_length}")
+        logging.info(f"Calculated sector length: {sector_length}")
         return sector_length
 
     @staticmethod
