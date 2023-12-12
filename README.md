@@ -1,4 +1,7 @@
 # Proof of concept: hiding secret messages in Garmin activity files
+
+<i>Disclaimer: I have carefully considered whether I should make my form of steganography public. Like any technique, steganography is a two-edged sword; after all, you can do good or evil with it. Because there are already many forms of steganography, this form will add little in practice. Nevertheless, there is still plenty to be gained in providing information about steganography. That is why I chose to make my study public.</i>
+
 One who has a secret, wants to keep it probably private. It is therefore not surprising that secrecy holders put effort in preventing their messages become public. A well-known example dates back to the ancient Greece, roughly to 440 years before Christ. At that time, a Greek named Histiaeus sent a message to his vassal by shaving the head of a trusted servant, ‘marking’ a message onto his scalp, and sending him on his way once his hair had regrown.
 
 The art of hiding secret data within an ordinary, non-secret, file or message in order to avoid detection is called steganography. This word comes from Greek steganographia, which combines the words steganós (‘covered or concealed’), and graphia (‘writing’). Apart from the story about Histiaeus, other examples of steganography in history include the use of invisible ink and subtle indentations in paper.
