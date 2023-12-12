@@ -78,15 +78,11 @@ To convert binary information to something like the text you are actually readin
 
 ![](__documentation__/ascii.png)
 
-The ASCII table.
-
 You need to know that the ASCII table is a character encoding standard for electronic communication. Every character in the ASCII table is equal to a specific binary value. For instance, by using the table, the binary value of ‘1111001’ can be converted to the letter ‘y’.
 
 Let me explain. The ASCII table is a 7-bit system. This means that all characters have a binary representation that is exactly 7 bits long. Each bit represents increasing powers of 2, starting with 2⁰. On most systems, when you are reading binary, you must start with the right-most digit and work to the left.
 
 ![](__documentation__/table1.png)
-
-The ASCII system supports 128 different numerical values.
 
 If we have binary value of ‘1111001’, this means the following:
 
@@ -148,13 +144,9 @@ What does this mean in practice? I stored my hidden message in a gpx file, and c
 
 ![](__documentation__/hr1.png)
 
-A screenshot of the two gpx files that are loaded in mygpsfiles.com.
-
 The old activity is shown in the orange color, the activity with the hidden message is shown in the blue color. It can be seen how the new heartbeat follows the same pattern as the first heartbeat. Let's zoom in:
 
 ![](__documentation__/hr2.png)
-
-The gpx files in detail.
 
 The graph above shows the heart rate on the y-axis and the distance in kilometers the x axis. We see the heartbeats in a period of approximately 6 minutes. 6 minutes contain 6 * 60 = 360 seconds, and therefore 360 bits. We know we need 8 bits for it writing one 8-bit ascii character. So, minus the first sector, there are more than enough in this piece 40 ascii characters disguised (in this case the hidden message is something other than "My secret text").
 
