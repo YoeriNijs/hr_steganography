@@ -169,6 +169,10 @@ After this, the script calculates how many heartbeats were equal on average in t
 
 It is important to mention that the test script only looks at the heartbeats of the first 60 seconds. The rest of the heartbeats are irrelevant to the test because they even can make the test more inaccurate.
 
-The complete script for hiding information in gpx files, including encoder, decoder and detection script, can be found at:  [https://github.com/YoeriNijs/hr_steganography](https://github.com/YoeriNijs/hr_steganography)[.](https://github.com/YoeriNijs/hr_steganography.)
+The complete script for hiding information in gpx files, including encoder, decoder and detection script, can be found at:  [https://github.com/YoeriNijs/hr_steganography](https://github.com/YoeriNijs/hr_steganography)[.](https://github.com/YoeriNijs/hr_steganography.) Just run the main script to get started:
+
+```
+python ./main.py
+```
 
 Now you know what steganography is, and what its power is. You now also know why it is important never to take digital files for granted: there may be a hidden message in them.
